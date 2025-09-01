@@ -1,0 +1,24 @@
+Shucking is the term used for taking apart an External Hard Drive and adding the Internal Hard Drive that was inside it into your PC/NAS.
+
+Requirements:
+- Old unused Credit Card or 4 Guitar Picks
+- Flathead Screwdriver
+- Phillips Head Screwdriver
+- T10 Torx Screwdriver or Pliers
+- Electrical Tape + Scissors
+
+1. Cut the Credit Card into 4 pieces or use 4 Guitar Picks. Slide each piece into the edges of the External Hard Drive.
+2. Take 1 of the 4 pieces and slide it into the side near the back of the hard drive.
+3. Use the Flathead Screwdriver and slide it into the same spot. Use force to nudge the hard drive out of the case.
+4. Once the hard drive is out, it will be inside another rectangular case. You can easily push the hard drive out of this.
+5. Use the Phillips Head Screwdriver to unscrew the attached piece that's covering the SATA slot.
+6. If the hard drive has 4 outer screws on the sides, use the T10 Torx Screwdriver or Pliers to unscrew those.
+7. Place the hard drive into the drive bay and screw it in. Then place the drive bay into the PC/NAS.
+
+The 3.3v Issue:
+If the hard drive does not power on and cannot be read, it's probably because of the 3.3v issue.
+1. Unplug the hard drive and locate the 3rd pin from the left of the SATA power slot. (see images or videos online)
+2. Use Electrical Tape and cut a small piece wide enough to cover the 3rd pin. (The 1st and 2nd pins aren't used so they can also be covered.)
+3. The piece should be long enough to wrap along the underside of the pin.
+4. Place the tape onto the pin and apply pressure on the top and bottom. Use a Flathead Screwdriver to apply pressure on the bottom.
+Note: If the hard drive still does not power on, you will need a Molex to SATA Power Adapter (DO NOT get the molded ones)

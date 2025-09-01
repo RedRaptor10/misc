@@ -1,0 +1,1 @@
+When moving/replacing drives, the array might show "Too many wrong and/or missing disks". This means you'll have to create a new config for the array. Go to settings and click New Config. Select "Preserve Current Assignments".

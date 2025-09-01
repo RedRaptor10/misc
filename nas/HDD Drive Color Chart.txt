@@ -1,0 +1,12 @@
+WD names their drive series using colors. The quick comparison of the WD lineups are shown in the table below. The Reds are designed for NAS appliances with 24/7 operation in mind and are more reliable than the cheaper WD Blues. These are the features you want for data storage.
+
+Series 		Application 		Comments
+
+Blue 		Consumer	 		For the storage plebs
+Red 		NAS 				24/7 Operation
+Red Pro 	Enterprise NAS 		Faster reds with a slightly better reliability
+Gold 		Enterprise 			Best reliability
+Re* 		Datacenter 			Also best reliability, essentially the old version of Gold
+Green 		Low power drives 	Merged with blues -- cannot recommend
+Black 		Enthusiast PC 		Faster blues -- basically like the Red Pro
+Purple 		Surveillance drives Use only for this application

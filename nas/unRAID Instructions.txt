@@ -1,0 +1,76 @@
+unRAID
+
+Requirements:
+- 32GB USB Flash Drive
+- Ethernet Cable
+- Monitor
+
+Download unRAID:
+1. Download and unzip unRAID onto a 32GB USB Flash Drive.
+2. Open the network.cfg file and add a static IP Address. The IP Address must be outside of your router's DHCP range.
+- For example, if the range is 1-249 then set it to something like 192.168.0.250.
+3. Set Gateway to the router's gateway. This can be found in the router's settings.
+4. Set DNS to 8.8.8.8 which is Google's public DNS. This will allow you to download Apps for unRAID.
+5. Plug the USB drive into the NAS.
+
+BIOS:
+1. Upon booting up, quickly press F8 or DEL (shown onscreen, whichever the Motherboard requires) to enter the BIOS.
+2. Look for SVM Mode and set it to Enabled.
+3. Look for IOMMU and set it to Enabled.
+4. Look for Boot Options and set the default to the USB Flash Drive.
+5. Configure any other options (ie. Fan speeds, Boot, etc.).
+6. Save changes and restart.
+7. On start-up, unRAID will display the IPv4 address (should be the same as the one set in network.cfg).
+8. On a separate PC, enter the IPv4 address.
+
+Setup unRAID:
+1. Log in
+username: root
+password: <set password>
+
+2. Click Main at the top and scroll to bottom to see disks.
+3. Set up the array by assigning disks. It's advised to assign at least 1 disk as the Parity drive in case of drive failure.
+4. Upon starting the array, it will say that the drive(s) must be formatted.
+
+IMPORTANT: Formatting will wipe the drives clean. Make sure there is nothing important on them.
+
+5. Click Add Pool and create separate pool for the Cache drive. Assign an SSD as the Cache drive.
+
+NOTE: When transferring data, transfer them to the Cache pool. This will be faster than transferring to the array.
+
+Setup Users:
+1. Click Users at the top and click Add User.
+2. Give the User a username and password (ie. admin). Users must enter these credentials when trying to access the NAS.
+
+Setup Shares:
+1. Click Shares at the top and click Add Share.
+2. Give the Share a name (ie. Media / TV Shows / Movies).
+3. Set Primary Storage to Array. Set Split Level to Manual.
+4. Set Export to Yes (hidden) and Security to Private.
+5. Set User Access (ie. admin should have Read/Write).
+
+1. Create another Share for the Cache drive.
+2. Set Primary Storage to Cache. Set Secondary Storage to Array. Set Split Level to Manual.
+3. Set Mover Action to Cache->Array.
+4. Set Export to Yes (hidden) and Security to Private.
+5. Set User Access (ie. admin should have Read/Write).
+
+Accessing NAS:
+1. On the PC, go to File Explorer.
+2. Click Computer at the top and click Map Network Drive.
+3. Set a drive letter. Add the folder location, which is the NAS IPv4 address followed by the Share name (ie. \\192.168.0.250\Media).
+4. Check Connect using different credentials. Click Finish and enter the user's credentials.
+
+Plugins:
+1. Click Apps at the top and install the Community Applications Plugin.
+
+If it fails, you will need to set the Gatewau and DNS in the network.cfg file. The Gateway can be found in the router's settings. The DNS can be something such as 8.8.8.8.
+
+Useful Plugins:
+- Recycle Bin
+- Unassigned Devices
+- Unassigned Devices Plus (necessary for Preclear)
+- Unassigned Devices Preclear (used for testing new hard drives before use)
+- Auto Turbo Write Mode (auto turns on Turbo Write Mode when all disks are spinning, improving write speeds. Turns off when any disks are spun down)
+- NUT (Network UPS Tools)
+Note: NUT requires USB cable, default settings are fine, Set Shutdown Mode to Time on Battery - 3-5 min, Disable UPS Power after Shutdown - Yes

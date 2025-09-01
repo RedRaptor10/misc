@@ -1,0 +1,68 @@
+Unassigned Devices Preclear - A plugin that allows you to test a hard drive
+Unassigned Devices Plus - Necessary for Preclear
+
+https://docs.unraid.net/unraid-os/manual/storage-management/#clear-v-pre-clear
+
+NOTES:
+- A 'Clear' disk is one that has been completely filled with zeroes and contains a special signature to say that it is in this state. This state is needed before a drive can be added to a parity-protected array without affecting parity.
+- A disk that is being added as a parity drive or one that is to be used to rebuild a failed drive does not need to be in a 'Clear' state. HOWEVER, it is still advised to Preclear it to stress test it so you know if it's faulty or not.
+- Only 1 Preclear is enough, however some users prefer to test multiple times.
+
+TLDR - Preclear allows you to test a new hard drive before use. By Preclearing, you don't need to take down the entire array/parity and rebuild it.
+
+---
+
+Instructions:
+0. Initial Setup - Install Unassigned Devices Plus plugin. Then in Unassigned Devices settings, enable Destructive Mode.
+1. Before adding a new hard drive, it's important to test it. After plugging the hard drive in, there will be a red X button to Clear the drive.
+2. Click the red X button next to the hard drive. Type "Yes" then click Clear. This will clear all partitions.
+3. Afterwards, a Preclear button will appear next to the hard drive. Click it, set Operation: Clear Disk and Cycles: 1. Click Start.
+
+This process will take at many hours depending on how large the hard drive is. You can freely use the array while it is Preclearing.
+Example: 18 TB = 72 hours (3 days)
+
+IMPORTANT: After completing a 'Preclear' you must not carry out any operation that will write to the drive (e.g. format it) as this will destroy the 'Clear' state. After Preclearing, simply add the drive to the array without formatting it.
+
+---
+Results - The following indicates a successful result:
+- All Preclear steps are a SUCCESS
+- There are no SMART attributes with FAILING_NOW
+- 0 sectors were re-allocated
+
+Successful Preclear Results:
+
+####################################################################################################
+#                              Unraid Server Preclear of disk ZVTBL8KN                             #
+#                            Cycle 1 of 1, partition start on sector 64.                           #
+#                                                                                                  #
+#   Step 1 of 5 - Pre-read verification:                  [23:57:06 @ 208 MB/s] SUCCESS            #
+#   Step 2 of 5 - Zeroing the disk:                       [24:00:48 @ 208 MB/s] SUCCESS            #
+#   Step 3 of 5 - Writing Unraid's Preclear signature:                          SUCCESS            #
+#   Step 4 of 5 - Verifying Unraid's Preclear signature:                        SUCCESS            #
+#   Step 5 of 5 - Post-Read verification:                 [23:56:52 @ 208 MB/s] SUCCESS            #
+#                                                                                                  #
+#                                                                                                  #
+#                                                                                                  #
+####################################################################################################
+#       Cycle elapsed time: 71:54:51 | Total elapsed time: 71:54:51                                #
+####################################################################################################
+
+####################################################################################################
+#   S.M.A.R.T. Status (device type: default)                                                       #
+#                                                                                                  #
+#   ATTRIBUTE                   INITIAL CYCLE 1 STATUS                                             #
+#   Reallocated_Sector_Ct       0       0       -                                                  #
+#   Power_On_Hours              25      97      Up 72                                              #
+#   Reported_Uncorrect          0       0       -                                                  #
+#   Airflow_Temperature_Cel     39      63      Up 24                                              #
+#   Current_Pending_Sector      0       0       -                                                  #
+#   Offline_Uncorrectable       0       0       -                                                  #
+#   UDMA_CRC_Error_Count        0       0       -                                                  #
+#                                                                                                  #
+#                                                                                                  #
+####################################################################################################
+#                                                                                                  #
+####################################################################################################
+--> ATTENTION: Please take a look into the SMART report above for drive health issues.
+
+--> RESULT: Preclear Finished Successfully!.

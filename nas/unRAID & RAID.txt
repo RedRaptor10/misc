@@ -1,0 +1,51 @@
+RAID and unRAID are used to protect against hard drive failures specifically and ensures availability.
+
+RAID is NOT necessary if you don't care about uptime (having a drive quickly accessible again in case of failure). Just use backups to restore data.
+
+- A single parity drive can be used for restoration in case any one drive fails (unRAID, RAID-1, or RAID-5).
+- A second parity drive can also be used for restoration in case any two drives fail (unRAID or RAID-6).
+- Use a separate drive/pool for caching, making reads/writes faster (256-500 GB SSD. Make sure the AppData and System directories are set to Prefer).
+
+NOTE: RAID/unRAID IS NOT A BACKUP
+If you accidentally delete your files, if both drives die at the same time, or if there is a house fire, RAID/unRAID won't save your data, but a backup will.
+
+===
+unRAID
+===
+Pros:
+- All drives are treated separately. If any one drive fails, then the others will be intact. (Set up User Shares in Windows to see as single drive.)
+- Allows for different sized drives.
+
+Cons:
+- Slower read/write speeds than RAID since data is accessed via a single drive instead of being spread across multiple drives.
+- Proprietary Linux-based OS software that costs money. ($130)
+
+---
+Alternatives:
+snapRAID + mergerfs + OpenMediaVault OS - Debian-based OS, FOSS, free, light-weight
+snapRAID + StableBit DrivePool ($30) + Windows OS - Easy OS, low cost, heavy-weight with unnecessary processes due to Windows
+
+- snapRAID is similar to unRAID, however it has a less user-friendly GUI and doesn't generate parity in real-time whereas unRAID does.
+- If data is changed often, set snapRAID to also generate parity often otherwise a drive failure will only rebuild to the state before generated parity.
+- The number of parity disks recommended depends on how many data disks you have. (See https://www.snapraid.it/)
+
+===
+RAID
+===
+Pros:
+- Faster read/write speeds than unRAID since data is split across multiple drives.
+- Free
+
+Cons:
+- All drives are pooled together and is seen as a single drive. If any one drive fails, then ALL data is lost.
+- All drives must be the same size. If using different sized drives, all drives use the size of your smallest drive while the remaining space is wasted.
+
+RAID Levels:
+
+RAID-0: Data is split across all drives separately. Since data is being read/written to multiple drives at once, the speed is increased, improving read/write performance. The disadvantage is that if one drive fails, then ALL information is lost because the data is split across drives, thus is bad for data reliability. Capacity is the total of all disks.
+
+RAID-1: Data is NOT split across drives, it is mirrored onto a single hard drive. If any one drive fails, data can still be accessed from the surviving drive and will be rebuilt. There is no performance boost. Capacity is the size of 1 disk (to be used as the surviving drive).
+
+RAID-5: The most popular RAID level. A combination of RAID-0 and RAID-1. Data is split across all drives AND has a copy on another disk. If any one drive fails, data can still be accessed from the surviving drive and will be rebuilt (however if TWO drives fail then ALL information is lost). There is a performance boost AND if one drive fails then it can be rebuilt. Capacity is the total of all disks minus 1 disk.
+
+There are other RAID levels, but the above are the most common types.

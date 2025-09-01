@@ -1,0 +1,31 @@
+https://support.plex.tv/articles/201154527-move-viewstate-ratings-from-one-install-to-another/
+https://forums.plex.tv/t/windows-move-viewstate-ratings-from-one-install-to-another/92283
+https://forums.plex.tv/t/move-viewstate-ratings-wiki-commands-for-linux-only/79952/4
+
+The watched/unwatched, view progress, and ratings are stored in an install-independent fashion that makes them easy to move between installations or servers.
+
+Before you do anything, make sure that the Plex Media Server is not actively running on either the source or destination install.
+
+1. Download sqlite3 from:
+
+https://www.sqlite.org/download.html
+
+2. Navigate to Precompiled Binaries for Windows and download sqlite-tools-win-32-x86-3250300.zip
+
+3. Unpack files to folder (ie. C:\sqlite)
+
+4. Run CMD and change directory to Plex Media Server database:
+
+cd %LOCALAPPDATA%\Plex Media Server\Plug-in Support\Databases
+
+5. Export database settings:
+
+C:\sqlite\sqlite3.exe com.plexapp.plugins.library.db ".dump metadata_item_settings" > settings.sql
+
+6. In new destination, empty old data:
+
+C:\sqlite\sqlite3.exe com.plexapp.plugins.library.db "DELETE FROM metadata_item_settings;"
+
+7. Import database settings:
+
+C:\sqlite\sqlite3.exe com.plexapp.plugins.library.db ".read settings.sql"

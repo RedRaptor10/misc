@@ -1,0 +1,15 @@
+Transferring files can be done via the PC's File Explorer or unRAID's terminal.
+Midnight Commander can be used for transferring files to and from unassigned devices plugged into the NAS.
+
+Unassigned Devices:
+1. If plugging in an unassigned device, make sure it is formatted as NTFS and not exFAT.
+2. In the uNRAID Main tab, scroll down and click Mount on the plugged in device.
+
+Midnight Commander:
+1. Click the Terminal button on the right.
+2. Type mc to start Midnight Commander.
+3. Use the Arrow keys to navigate Midnight Commander.
+4. Press TAB to switch between the source and destination screens. Mounted devices are located in /mnt/
+5. Additional options are displayed at the bottom which can be used by pressing the F1-F10 keys.
+6. To select multiple items, press INSERT.
+7. To display the file or folder size, press CTRL+SPACE.
